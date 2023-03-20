@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Home from "./Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {PopularMoviesUrl,ComedyMoviesUrl,LatestMoviesUrl } from "./Url";
+import Movies from "./Movies";
+import Banner from "./Banner";
+import MovieDetails from "./MovieDetails";
+import { UserContext } from "./UserProvider";
+import { useContext } from "react";
 
 function App() {
+  const { hide } = useContext(UserContext);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Home />
+        { hide ? <Banner /> : "" }
+        <Routes>
+          <Route path = "/" element = {<Movies  apitest={PopularMoviesUrl} />} ></Route>
+          <Route path = "/Latest" element = {<Movies  apitest={LatestMoviesUrl} />}></Route>
+          <Route path = "/Comedy" element = {<Movies  apitest={ComedyMoviesUrl} />}></Route>
+          <Route path = "/Movie-details" element = {<MovieDetails/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

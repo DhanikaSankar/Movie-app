@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-toggler{
+    color: white;
+}
+.card{
+    width: 18rem !important;
+    float: left;
+    margin: 20px;
+    /* height: 300px; */
+}
+.card-title{
+    font-size: 18px;
+}
+.btn{
+    padding:8px;
+    font-size:18px;
+}
+.img{
+    padding: 5px;
+    border-radius: 15px;
+}
+.main-row{
+    justify-content: center;
+    background: black;
+}
